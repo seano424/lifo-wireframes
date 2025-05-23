@@ -11,7 +11,7 @@ export const Header: React.FC<HeaderProps> = ({
   leftIcon = '☰',
   rightIcon = '🔔',
 }) => (
-  <div className="flex justify-between items-center mb-5 pb-3 border-b border-gray-200 sticky top-0 bg-white z-10">
+  <div className="flex justify-between items-center mb-5 pb-3 border-b border-gray-200 sticky top-0 bg-white z-10 px-5">
     <div className="w-8 h-8 border border-gray-300 rounded-md flex items-center justify-center text-sm">
       {leftIcon}
     </div>

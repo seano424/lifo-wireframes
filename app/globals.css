@@ -17,3 +17,5 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@plugin 'tailwind-scrollbar';

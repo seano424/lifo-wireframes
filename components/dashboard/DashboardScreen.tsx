@@ -12,30 +12,42 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   <>
     <Header title="LIFO Dashboard" />
 
-    <div className="flex gap-1 justify-between overflow-x-auto text-nowrap pb-4">
-      <button className="text-xs flex flex-col items-center justify-center">
-        <span className="h-10 w-10 flex justify-center items-center border rounded-full text-xl">
+    <div className="flex gap-3 justify-between overflow-x-auto text-nowrap pb-4 px-1">
+      <button className="text-xs flex flex-col items-center justify-center group">
+        <span className="h-12 w-12 flex justify-center items-center rounded-xl text-xl
+          shadow-[4px_4px_8px_rgba(0,0,0,0.05),-4px_-4px_8px_rgba(255,255,255,0.8)]
+          group-hover:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.05),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]
+          transition-all duration-300 bg-white/40 backdrop-blur-sm border border-white/20">
           📋
         </span>
-        <span>Rundown</span>
+        <span className="mt-2 text-gray-700/90">Rundown</span>
       </button>
-      <button className="text-xs flex flex-col items-center justify-center">
-        <span className="h-10 w-10 flex justify-center items-center border rounded-full text-xl">
+      <button className="text-xs flex flex-col items-center justify-center group">
+        <span className="h-12 w-12 flex justify-center items-center rounded-xl text-xl
+          shadow-[4px_4px_8px_rgba(0,0,0,0.05),-4px_-4px_8px_rgba(255,255,255,0.8)]
+          group-hover:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.05),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]
+          transition-all duration-300 bg-red-50/40 backdrop-blur-sm border border-white/20">
           🔴
         </span>
-        <span>Urgent</span>
+        <span className="mt-2 text-gray-700/90">Urgent</span>
       </button>
-      <button className="text-xs flex flex-col items-center justify-center">
-        <span className="h-10 w-10 flex justify-center items-center border rounded-full text-xl">
+      <button className="text-xs flex flex-col items-center justify-center group">
+        <span className="h-12 w-12 flex justify-center items-center rounded-xl text-xl
+          shadow-[4px_4px_8px_rgba(0,0,0,0.05),-4px_-4px_8px_rgba(255,255,255,0.8)]
+          group-hover:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.05),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]
+          transition-all duration-300 bg-yellow-50/40 backdrop-blur-sm border border-white/20">
           🟡
         </span>
-        <span>Watch List</span>
+        <span className="mt-2 text-gray-700/90">Watch List</span>
       </button>
-      <button className="text-xs flex flex-col items-center justify-center">
-        <span className="h-10 w-10 flex justify-center items-center border rounded-full text-xl">
+      <button className="text-xs flex flex-col items-center justify-center group">
+        <span className="h-12 w-12 flex justify-center items-center rounded-xl text-xl
+          shadow-[4px_4px_8px_rgba(0,0,0,0.05),-4px_-4px_8px_rgba(255,255,255,0.8)]
+          group-hover:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.05),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]
+          transition-all duration-300 bg-green-50/40 backdrop-blur-sm border border-white/20">
           🟢
         </span>
-        <span>Healthy</span>
+        <span className="mt-2 text-gray-700/90">Healthy</span>
       </button>
     </div>
 

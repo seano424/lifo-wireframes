@@ -13,26 +13,39 @@ interface ProductItemProps {
 }
 
 export const ProductItem: React.FC<ProductItemProps> = ({ item }) => (
-  <div className="flex items-center py-3 border-b border-gray-200">
+  <div
+    className="flex items-center p-4 rounded-xl
+    shadow-lg 
+    bg-white/40 backdrop-blur-sm border border-white/20
+    hover:shadow-xl
+    transition-all duration-300"
+  >
     <div
-      className={`w-10 h-10 ${
-        item.color === 'red' ? 'bg-red-500' : 'bg-yellow-500'
-      } text-white rounded-lg flex items-center justify-center font-bold mr-3`}
+      className={`w-12 h-12 ${
+        item.color === 'red' ? 'bg-red-500/90' : 'bg-yellow-500/90'
+      } text-white rounded-xl flex items-center justify-center font-bold mr-4
+      shadow-lg`}
     >
       {item.score}
     </div>
     <div className="flex-1">
-      <div className="font-semibold text-gray-800 text-sm">{item.name}</div>
-      <div className="text-xs text-gray-600">
-        Expires: {item.expires} • Stock: {item.stock}
+      <div className="font-semibold text-gray-800/90 text-sm mb-1">
+        {item.name}
+      </div>
+      <div className="text-xs text-gray-600/90 flex flex-col gap-1">
+        <span>Expires: {item.expires}</span>
+        <span>Stock: {item.stock}</span>
       </div>
     </div>
     <button
       className={`${
-        item.color === 'red' ? 'bg-red-500' : 'bg-yellow-500'
-      } text-white px-3 py-1 rounded text-xs font-medium`}
+        item.color === 'red' ? 'bg-red-500/90' : 'bg-yellow-500/90'
+      } text-white px-4 py-2 rounded-xl text-xs font-medium
+      shadow-lg max-w-16 flex justify-center items-center
+      hover:shadow-xl
+      transition-all duration-300`}
     >
       {item.action}
     </button>
   </div>
-) 
+)

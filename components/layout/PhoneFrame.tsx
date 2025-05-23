@@ -3,19 +3,16 @@ import { BottomNavigation } from './BottomNavigation'
 
 interface PhoneFrameProps {
   children: React.ReactNode
-  title: string
   activeScreen: string
   onNavigate: (key: string) => void
 }
 
 export const PhoneFrame: React.FC<PhoneFrameProps> = ({
   children,
-  title,
   activeScreen,
   onNavigate,
 }) => (
   <div className="w-80 h-[600px] bg-white border-4 border-gray-800 rounded-3xl py-5 shadow-lg relative mx-auto flex flex-col overflow-hidden">
-    <div className="text-center text-gray-600 mb-4 text-sm">{title}</div>
     <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300/0 scrollbar-track-gray-100/0 pb-16">
       {children}
     </div>

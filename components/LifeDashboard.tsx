@@ -121,7 +121,6 @@ const LifoDashboard = () => {
             Interactive Prototype
           </h2>
           <PhoneFrame
-            title="Try the interface - click navigation buttons"
             activeScreen={activeScreen}
             onNavigate={setActiveScreen}
           >
@@ -148,7 +147,8 @@ const LifoDashboard = () => {
               </h3>
               <p className="text-gray-600 text-sm">
                 Not just data display - every screen suggests concrete actions:
-                &quot;50% OFF&quot;, &quot;DONATE&quot;, &quot;MOVE TO FRONT&quot;.
+                &quot;50% OFF&quot;, &quot;DONATE&quot;, &quot;MOVE TO
+                FRONT&quot;.
               </p>
             </div>
             <div>
@@ -165,8 +165,8 @@ const LifoDashboard = () => {
                 Flexible Data Import
               </h3>
               <p className="text-gray-600 text-sm">
-                Smart column mapping means stores don&apos;t need to change their
-                existing spreadsheet workflow.
+                Smart column mapping means stores don&apos;t need to change
+                their existing spreadsheet workflow.
               </p>
             </div>
           </div>

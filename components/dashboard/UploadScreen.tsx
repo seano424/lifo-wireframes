@@ -39,7 +39,7 @@ export const UploadScreen: React.FC<UploadScreenProps> = ({ onNavigate }) => (
       <div className="bg-teal-50 p-4 rounded-lg my-5">
         <div className="text-xs text-teal-800">
           💡 <strong>Pro tip:</strong> Keep using your existing spreadsheet
-          format. We'll help you map the columns on the next step.
+          format. We&apos;ll help you map the columns on the next step.
         </div>
       </div>
 

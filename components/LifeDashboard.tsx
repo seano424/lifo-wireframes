@@ -148,7 +148,7 @@ const LifoDashboard = () => {
               </h3>
               <p className="text-gray-600 text-sm">
                 Not just data display - every screen suggests concrete actions:
-                "50% OFF", "DONATE", "MOVE TO FRONT".
+                &quot;50% OFF&quot;, &quot;DONATE&quot;, &quot;MOVE TO FRONT&quot;.
               </p>
             </div>
             <div>
@@ -165,7 +165,7 @@ const LifoDashboard = () => {
                 Flexible Data Import
               </h3>
               <p className="text-gray-600 text-sm">
-                Smart column mapping means stores don't need to change their
+                Smart column mapping means stores don&apos;t need to change their
                 existing spreadsheet workflow.
               </p>
             </div>

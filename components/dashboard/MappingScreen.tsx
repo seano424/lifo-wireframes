@@ -27,7 +27,7 @@ export const MappingScreen: React.FC<MappingScreenProps> = ({ onNavigate }) => (
         key={csv}
         className="flex justify-between items-center py-2 border-b border-gray-200"
       >
-        <div className="font-medium text-gray-800 text-sm">"{csv}"</div>
+        <div className="font-medium text-gray-800 text-sm">&quot;{csv}&quot;</div>
         <select className="px-2 py-1 border border-gray-300 rounded-sm text-xs min-w-[120px]">
           <option>{mapped}</option>
           <option>Ignore</option>
@@ -36,7 +36,7 @@ export const MappingScreen: React.FC<MappingScreenProps> = ({ onNavigate }) => (
     ))}
 
     <div className="bg-yellow-50 p-3 rounded-lg my-5 text-xs text-yellow-800">
-      ⚠ Missing "Weekly Sales" data - scores will be estimated
+      ⚠ Missing &quot;Weekly Sales&quot; data - scores will be estimated
     </div>
 
     <div className="bg-green-50 p-3 rounded-lg my-5">

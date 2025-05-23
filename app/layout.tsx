@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         suppressHydrationWarning
-        className={`${lexend.className} antialiased`}
+        className={`${lexend.className} ${funnelDisplay.variable} antialiased`}
       >
         {children}
       </body>

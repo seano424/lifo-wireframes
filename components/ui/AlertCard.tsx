@@ -36,7 +36,7 @@ export const AlertCard: React.FC<AlertCardProps> = ({
         hover:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.05),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]
         transition-all
         duration-300
-        backdrop-blur-sm
+        backdrop-blur-xs
         border
         border-white/20
       `}

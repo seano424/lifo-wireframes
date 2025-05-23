@@ -86,7 +86,7 @@ const LifoDashboard = () => {
         </h1>
 
         {/* User Flow */}
-        <div className="bg-white p-8 rounded-xl mb-10 shadow-sm">
+        <div className="bg-white p-8 rounded-xl mb-10 shadow-xs">
           <h2 className="text-xl font-semibold text-gray-800 mb-5">
             User Flow
           </h2>
@@ -130,7 +130,7 @@ const LifoDashboard = () => {
         </div>
 
         {/* Design Decisions */}
-        <div className="bg-white p-8 rounded-xl shadow-sm">
+        <div className="bg-white p-8 rounded-xl shadow-xs">
           <h2 className="text-xl font-semibold text-gray-800 mb-5">
             Design Decisions
           </h2>

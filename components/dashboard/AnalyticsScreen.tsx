@@ -20,11 +20,11 @@ export const AnalyticsScreen: React.FC = () => (
       </div>
     </div>
 
-    <div className="bg-gray-100 h-30 rounded-lg flex items-center justify-center text-gray-500 text-xs my-4 bg-gradient-to-br from-gray-50 to-gray-100 py-3">
+    <div className="bg-gray-100 h-30 rounded-lg flex items-center justify-center text-gray-500 text-xs my-4 bg-linear-to-br from-gray-50 to-gray-100 py-3">
       📊 Products by Expiry Timeline
     </div>
 
-    <div className="bg-gray-100 h-30 rounded-lg flex items-center justify-center text-gray-500 text-xs my-4 bg-gradient-to-br from-gray-50 to-gray-100 py-3">
+    <div className="bg-gray-100 h-30 rounded-lg flex items-center justify-center text-gray-500 text-xs my-4 bg-linear-to-br from-gray-50 to-gray-100 py-3">
       🥧 Inventory Health (Red/Yellow/Green)
     </div>
 

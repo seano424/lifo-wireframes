@@ -33,7 +33,7 @@ export const ProductsScreen: React.FC<ProductsScreenProps> = ({ items }) => (
 
     <div className="mt-8 p-4 rounded-xl
       shadow-[4px_4px_8px_rgba(0,0,0,0.05),-4px_-4px_8px_rgba(255,255,255,0.8)]
-      bg-white/40 backdrop-blur-sm border border-white/20">
+      bg-white/40 backdrop-blur-xs border border-white/20">
       <div className="text-xs text-gray-700/90 text-center flex items-center justify-center gap-2">
         <span className="text-lg">💡</span>
         <span>Tip: Low scores need immediate action. High scores are healthy inventory.</span>

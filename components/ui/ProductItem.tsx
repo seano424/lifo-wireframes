@@ -16,7 +16,7 @@ export const ProductItem: React.FC<ProductItemProps> = ({ item }) => (
   <div
     className="flex items-center p-4 rounded-xl
     shadow-lg 
-    bg-white/40 backdrop-blur-sm border border-white/20
+    bg-white/40 backdrop-blur-xs border border-white/20
     hover:shadow-xl
     transition-all duration-300"
   >

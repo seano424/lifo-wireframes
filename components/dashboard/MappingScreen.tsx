@@ -28,7 +28,7 @@ export const MappingScreen: React.FC<MappingScreenProps> = ({ onNavigate }) => (
         className="flex justify-between items-center py-2 border-b border-gray-200"
       >
         <div className="font-medium text-gray-800 text-sm">"{csv}"</div>
-        <select className="px-2 py-1 border border-gray-300 rounded text-xs min-w-[120px]">
+        <select className="px-2 py-1 border border-gray-300 rounded-sm text-xs min-w-[120px]">
           <option>{mapped}</option>
           <option>Ignore</option>
         </select>

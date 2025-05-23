@@ -2,7 +2,7 @@ import LifeDashboard from '@/components/LifeDashboard'
 
 export default function Home() {
   return (
-    <div>
+    <div className="font-castoro">
       <LifeDashboard />
     </div>
   )

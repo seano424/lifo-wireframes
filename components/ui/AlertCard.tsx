@@ -14,21 +14,21 @@ export const AlertCard: React.FC<AlertCardProps> = ({
   urgent = false,
 }) => {
   const colors = {
-    red: 'bg-red-50 border-red-500 text-red-700',
+    red: 'bg-red-50/40 border-red-500 text-red-700',
     yellow: 'bg-yellow-50 border-yellow-500 text-yellow-700',
     green: 'bg-green-50 border-green-500 text-green-700',
   }
 
+  const defaultTitles = {
+    red: '⚠ URGENT',
+    yellow: '⚡ CAUTION',
+    green: '✓ HEALTHY',
+  }
+
   return (
-    <div
-      className={`${
-        colors[type]
-      } border-l-4 p-4 rounded-lg mb-4`}
-    >
+    <div className={`${colors[type]}  p-4 rounded-lg mb-4`}>
       <div className="font-semibold mb-1">
-        {type === 'red' && '⚠ URGENT'}
-        {type === 'yellow' && '⚡ CAUTION'}
-        {type === 'green' && '✓ HEALTHY'}
+        {title || defaultTitles[type]}
       </div>
       <div className="text-sm text-gray-800">{description}</div>
       {urgent && (
@@ -36,4 +36,4 @@ export const AlertCard: React.FC<AlertCardProps> = ({
       )}
     </div>
   )
-} 
+}

@@ -1,8 +1,14 @@
+'use client'
+
 import React, { useState } from 'react'
 import { Header } from '../layout/Header'
 import { AlertCard } from '../ui/AlertCard'
 import { ProductList } from '../ui/ProductList'
-import { getUrgentItems, getWatchListItems, getHealthyItems } from '../../data/mockProducts'
+import {
+  getUrgentItems,
+  getWatchListItems,
+  getHealthyItems,
+} from '../../data/mockProducts'
 
 interface DashboardScreenProps {
   onNavigate: (screen: string) => void
@@ -30,7 +36,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
       <Header title="LIFO Dashboard" />
 
       <div className="flex gap-3 justify-between overflow-x-auto text-nowrap pb-4 px-5">
-        <button 
+        <button
           onClick={() => handleFilterClick('all')}
           className={`text-xs flex flex-col items-center justify-center cursor-pointer group ${
             activeFilter === 'all' ? 'opacity-100' : 'opacity-60'
@@ -46,7 +52,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           </span>
           <span className="mt-2 text-gray-700/90">Rundown</span>
         </button>
-        <button 
+        <button
           onClick={() => handleFilterClick('red')}
           className={`text-xs flex flex-col items-center justify-center cursor-pointer group ${
             activeFilter === 'red' ? 'opacity-100' : 'opacity-60'
@@ -62,7 +68,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           </span>
           <span className="mt-2 text-gray-700/90">Urgent</span>
         </button>
-        <button 
+        <button
           onClick={() => handleFilterClick('yellow')}
           className={`text-xs flex flex-col items-center justify-center cursor-pointer group ${
             activeFilter === 'yellow' ? 'opacity-100' : 'opacity-60'
@@ -78,7 +84,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           </span>
           <span className="mt-2 text-gray-700/90">Watch List</span>
         </button>
-        <button 
+        <button
           onClick={() => handleFilterClick('green')}
           className={`text-xs flex flex-col items-center justify-center cursor-pointer group ${
             activeFilter === 'green' ? 'opacity-100' : 'opacity-60'
@@ -125,10 +131,6 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         items={allItems}
         filterType={activeFilter}
         variant="card"
-        onItemClick={(item) => {
-          // Handle item click - you can navigate to a detailed view or show a modal
-          console.log('Item clicked:', item)
-        }}
       />
 
       <div className="px-5 mt-4">

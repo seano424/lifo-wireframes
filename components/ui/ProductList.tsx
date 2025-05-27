@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { ProductCard } from './ProductCard'
 import { ProductItem } from './ProductItem'
@@ -43,7 +45,7 @@ export const ProductList: React.FC<ProductListProps> = ({
             <ProductCard
               key={item.id + item.name + index}
               item={item}
-              onClick={() => onItemClick?.(item)}
+              onClick={onItemClick ? () => onItemClick(item) : undefined}
             />
           )
         }

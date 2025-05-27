@@ -11,53 +11,74 @@ import { AnalyticsScreen } from './dashboard/AnalyticsScreen'
 interface UrgentItem {
   id: number
   name: string
+  brand: string
+  packageSize: string
+  sku: string
   expires: string
   stock: number
   score: number
   action: string
   color: 'red' | 'yellow'
+  thumbnail: string
 }
 
 const LifoDashboard = () => {
   const [activeScreen, setActiveScreen] = useState('dashboard')
+  const [showPackagedOnly, setShowPackagedOnly] = useState(true)
 
   // Sample data
   const urgentItems: UrgentItem[] = [
     {
       id: 1,
-      name: 'Greek Yogurt 500g',
+      name: 'Corn Flakes',
+      brand: 'Kellogg\'s',
+      packageSize: '500g',
+      sku: 'KF-500-001',
       expires: '2 days',
       stock: 12,
       score: 2,
       action: '50% OFF',
       color: 'red',
+      thumbnail: '🌽'
     },
     {
       id: 2,
-      name: 'White Bread',
+      name: 'Canned Tomatoes',
+      brand: 'Hunt\'s',
+      packageSize: '400g',
+      sku: 'HT-400-002',
       expires: '2 days',
       stock: 8,
       score: 3,
       action: 'DONATE',
       color: 'red',
+      thumbnail: '🥫'
     },
     {
       id: 3,
-      name: 'Cheddar Cheese',
+      name: 'Bottled Water',
+      brand: 'Aquafina',
+      packageSize: '500ml',
+      sku: 'AQ-500-003',
       expires: '3 days',
-      stock: 6,
+      stock: 24,
       score: 4,
       action: 'FRONT',
       color: 'yellow',
+      thumbnail: '💧'
     },
     {
       id: 4,
-      name: 'Organic Milk',
+      name: 'Frozen Pizza',
+      brand: 'DiGiorno',
+      packageSize: '300g',
+      sku: 'DG-300-004',
       expires: '4 days',
       stock: 15,
       score: 5,
       action: '25% OFF',
       color: 'yellow',
+      thumbnail: '🍕'
     },
   ]
 
@@ -66,7 +87,13 @@ const LifoDashboard = () => {
       case 'dashboard':
         return <DashboardScreen onNavigate={setActiveScreen} />
       case 'products':
-        return <ProductsScreen items={urgentItems} />
+        return (
+          <ProductsScreen 
+            items={urgentItems}
+            showPackagedOnly={showPackagedOnly}
+            onTogglePackagedOnly={() => setShowPackagedOnly(!showPackagedOnly)}
+          />
+        )
       case 'upload':
         return <UploadScreen onNavigate={setActiveScreen} />
       case 'mapping':

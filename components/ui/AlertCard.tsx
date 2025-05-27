@@ -15,8 +15,10 @@ export const AlertCard: React.FC<AlertCardProps> = ({
 }) => {
   const colors = {
     red: 'bg-red-50/40 border-red-500/20 text-red-700 shadow-red-100/50',
-    yellow: 'bg-yellow-50/40 border-yellow-500/20 text-yellow-700 shadow-yellow-100/50',
-    green: 'bg-green-50/40 border-green-500/20 text-green-700 shadow-green-100/50',
+    yellow:
+      'bg-yellow-50/40 border-yellow-500/20 text-yellow-700 shadow-yellow-100/50',
+    green:
+      'bg-green-50/40 border-green-500/20 text-green-700 shadow-green-100/50',
   }
 
   const defaultTitles = {
@@ -26,7 +28,7 @@ export const AlertCard: React.FC<AlertCardProps> = ({
   }
 
   return (
-    <div 
+    <div
       className={`
         ${colors[type]} 
         p-4 
@@ -47,7 +49,7 @@ export const AlertCard: React.FC<AlertCardProps> = ({
       <div className="text-sm text-gray-700/90">{description}</div>
       {urgent && (
         <div className="text-xs text-gray-500/80 mt-2 flex items-center gap-1">
-          Tap to see details 
+          Tap to see details
           <span className="text-gray-400">→</span>
         </div>
       )}

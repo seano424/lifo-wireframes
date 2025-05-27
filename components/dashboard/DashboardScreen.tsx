@@ -63,18 +63,18 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
       <AlertCard
         type="red"
         title="Urgent Items"
-        description="5 products expire in 2 days"
+        description="5 packaged products expire in 2 days"
         urgent={true}
       />
       <AlertCard
         type="yellow"
         title="Watch List"
-        description="12 products expire this week"
+        description="12 packaged products expire this week"
       />
       <AlertCard
         type="green"
         title="Healthy Inventory"
-        description="48 products in good condition"
+        description="48 packaged products in good condition"
       />
 
       <div className="bg-gray-100 h-30 rounded-lg flex items-center justify-center text-gray-500 text-xs my-4 bg-linear-to-br from-gray-50 to-gray-100 py-3">

@@ -19,7 +19,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
       <Header title="LIFO Dashboard" />
 
       <div className="flex gap-3 justify-between overflow-x-auto text-nowrap pb-4 px-5">
-        <button className="text-xs flex flex-col items-center justify-center group">
+        <button className="text-xs flex flex-col items-center justify-center cursor-pointer group">
           <span
             className="h-12 w-12 flex justify-center items-center rounded-xl text-xl
             shadow-[4px_4px_8px_rgba(0,0,0,0.05),-4px_-4px_8px_rgba(255,255,255,0.8)]
@@ -30,7 +30,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           </span>
           <span className="mt-2 text-gray-700/90">Rundown</span>
         </button>
-        <button className="text-xs flex flex-col items-center justify-center group">
+        <button className="text-xs flex flex-col items-center justify-center cursor-pointer group">
           <span
             className="h-12 w-12 flex justify-center items-center rounded-xl text-xl
             shadow-[4px_4px_8px_rgba(0,0,0,0.05),-4px_-4px_8px_rgba(255,255,255,0.8)]
@@ -41,7 +41,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           </span>
           <span className="mt-2 text-gray-700/90">Urgent</span>
         </button>
-        <button className="text-xs flex flex-col items-center justify-center group">
+        <button className="text-xs flex flex-col items-center justify-center cursor-pointer group">
           <span
             className="h-12 w-12 flex justify-center items-center rounded-xl text-xl
             shadow-[4px_4px_8px_rgba(0,0,0,0.05),-4px_-4px_8px_rgba(255,255,255,0.8)]
@@ -52,7 +52,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           </span>
           <span className="mt-2 text-gray-700/90">Watch List</span>
         </button>
-        <button className="text-xs flex flex-col items-center justify-center group">
+        <button className="text-xs flex flex-col items-center justify-center cursor-pointer group">
           <span
             className="h-12 w-12 flex justify-center items-center rounded-xl text-xl
             shadow-[4px_4px_8px_rgba(0,0,0,0.05),-4px_-4px_8px_rgba(255,255,255,0.8)]

@@ -7,7 +7,12 @@ import { ProductsScreen } from './dashboard/ProductsScreen'
 import { UploadScreen } from './dashboard/UploadScreen'
 import { MappingScreen } from './dashboard/MappingScreen'
 import { AnalyticsScreen } from './dashboard/AnalyticsScreen'
-import { getAllItems, getUrgentItems, getWatchListItems, getHealthyItems } from '../data/mockProducts'
+import {
+  getAllItems,
+  getUrgentItems,
+  getWatchListItems,
+  getHealthyItems,
+} from '../data/mockProducts'
 import { UrgentItem } from '../types'
 
 const LifoDashboard = () => {
@@ -27,8 +32,8 @@ const LifoDashboard = () => {
         return (
           <ProductsScreen
             items={allItems}
-            showPackagedOnly={showPackagedOnly}
-            onTogglePackagedOnly={() => setShowPackagedOnly(!showPackagedOnly)}
+            initialFilterType={showPackagedOnly ? 'packaged' : 'all'}
+            onFilterChange={(type) => setShowPackagedOnly(type === 'packaged')}
           />
         )
       case 'upload':

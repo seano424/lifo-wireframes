@@ -19,7 +19,7 @@ export const BottomNavigation: React.FC<BottomNavigationProps> = ({
       <button
         key={key}
         onClick={() => onNavigate(key)}
-        className={`flex flex-col items-center text-xs ${
+        className={`flex flex-col items-center cursor-pointer text-xs ${
           active === key ? 'text-blue-600' : 'text-gray-600'
         }`}
       >

@@ -13,6 +13,7 @@ interface ProductItemProps {
     action: string
     color: 'red' | 'yellow'
     thumbnail: string
+    category: string
   }
 }
 
@@ -38,12 +39,12 @@ export const ProductItem: React.FC<ProductItemProps> = ({ item }) => {
           {item.thumbnail}
         </div>
         <div className="flex-1 min-w-0 flex flex-col items-start">
-          <div className="font-semibold text-gray-800/90 text-sm mb-1 truncate">
+          <div className="font-semibold text-gray-800/90 text-sm mb-1 text-left">
             {item.brand} {item.name}
           </div>
           <div className="text-xs text-gray-600/90 flex flex-col gap-1">
             <span className="truncate flex">
-              {item.packageSize} • SKU: {item.sku}
+              {item.packageSize} • {item.category}
             </span>
             <span>
               Expires: {item.expires} • Stock: {item.stock}
@@ -51,30 +52,6 @@ export const ProductItem: React.FC<ProductItemProps> = ({ item }) => {
           </div>
           <p className="text-xs text-gray-600/90"> see more</p>
         </div>
-
-        {/* <div className="flex flex-col gap-2 ml-2">
-          <button
-            className={`${
-              item.color === 'red' ? 'bg-red-500/90' : 'bg-yellow-500/90'
-            } text-white px-3 py-1.5 rounded-lg text-xs font-medium
-            shadow-lg
-            hover:shadow-xl
-            transition-all duration-300
-            min-w-[80px]`}
-          >
-            {item.action}
-          </button>
-          <button
-            onClick={() => setShowModal(true)}
-            className="bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg text-xs font-medium
-            shadow-lg
-            hover:shadow-xl
-            transition-all duration-300
-            min-w-[80px]"
-          >
-            Details
-          </button>
-        </div> */}
       </button>
 
       {/* Modal */}
@@ -110,6 +87,10 @@ export const ProductItem: React.FC<ProductItemProps> = ({ item }) => {
                 <div>
                   <p className="text-xs text-gray-500 mb-1">SKU</p>
                   <p className="text-sm font-medium">{item.sku}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500 mb-1">Category</p>
+                  <p className="text-sm font-medium">{item.category}</p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 mb-1">Stock Level</p>

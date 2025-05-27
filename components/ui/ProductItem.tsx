@@ -11,9 +11,8 @@ interface ProductItemProps {
     stock: number
     score: number
     action: string
-    color: 'red' | 'yellow'
+    color: 'red' | 'yellow' | 'green'
     thumbnail: string
-    category: string
   }
 }
 
@@ -32,7 +31,9 @@ export const ProductItem: React.FC<ProductItemProps> = ({ item }) => {
       >
         <div
           className={`w-12 h-12 ${
-            item.color === 'red' ? 'bg-red-500/90' : 'bg-yellow-500/90'
+            (item.color === 'red' && 'bg-red-500/90') ||
+            (item.color === 'yellow' && 'bg-yellow-500/90') ||
+            (item.color === 'green' && 'bg-green-500/90')
           } text-white rounded-xl flex items-center justify-center text-xl mr-4
           shadow-lg`}
         >
@@ -44,7 +45,7 @@ export const ProductItem: React.FC<ProductItemProps> = ({ item }) => {
           </div>
           <div className="text-xs text-gray-600/90 flex flex-col gap-1">
             <span className="truncate flex">
-              {item.packageSize} • {item.category}
+              {item.packageSize} • SKU: {item.sku}
             </span>
             <span>
               Expires: {item.expires} • Stock: {item.stock}
@@ -62,7 +63,9 @@ export const ProductItem: React.FC<ProductItemProps> = ({ item }) => {
               <div className="flex items-center gap-3">
                 <div
                   className={`w-12 h-12 ${
-                    item.color === 'red' ? 'bg-red-500/90' : 'bg-yellow-500/90'
+                    (item.color === 'red' && 'bg-red-500/90') ||
+                    (item.color === 'yellow' && 'bg-yellow-500/90') ||
+                    (item.color === 'green' && 'bg-green-500/90')
                   } text-white rounded-xl flex items-center justify-center text-xl`}
                 >
                   {item.thumbnail}
@@ -89,10 +92,6 @@ export const ProductItem: React.FC<ProductItemProps> = ({ item }) => {
                   <p className="text-sm font-medium">{item.sku}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 mb-1">Category</p>
-                  <p className="text-sm font-medium">{item.category}</p>
-                </div>
-                <div>
                   <p className="text-xs text-gray-500 mb-1">Stock Level</p>
                   <p className="text-sm font-medium">{item.stock} units</p>
                 </div>
@@ -104,10 +103,20 @@ export const ProductItem: React.FC<ProductItemProps> = ({ item }) => {
                   <p className="text-xs text-gray-500 mb-1">Status</p>
                   <p
                     className={`text-sm font-medium ${
-                      item.color === 'red' ? 'text-red-600' : 'text-yellow-600'
+                      item.color === 'red'
+                        ? 'text-red-600'
+                        : item.color === 'yellow'
+                        ? 'text-yellow-600'
+                        : item.color === 'green'
+                        ? 'text-green-600'
+                        : 'text-gray-600'
                     }`}
                   >
-                    {item.color === 'red' ? 'Urgent' : 'Watch List'}
+                    {item.color === 'red'
+                      ? 'Urgent'
+                      : item.color === 'yellow'
+                      ? 'Watch List'
+                      : 'Healthy'}
                   </p>
                 </div>
               </div>
@@ -116,7 +125,13 @@ export const ProductItem: React.FC<ProductItemProps> = ({ item }) => {
                 <p className="text-xs text-gray-500 mb-2">Recommended Action</p>
                 <button
                   className={`w-full ${
-                    item.color === 'red' ? 'bg-red-500/90' : 'bg-yellow-500/90'
+                    item.color === 'red'
+                      ? 'bg-red-500/90'
+                      : item.color === 'yellow'
+                      ? 'bg-yellow-500/90'
+                      : item.color === 'green'
+                      ? 'bg-green-500/90'
+                      : 'bg-gray-500/90'
                   } text-white py-2 rounded-lg text-sm font-medium
                   shadow-lg cursor-pointer
                   hover:shadow-xl

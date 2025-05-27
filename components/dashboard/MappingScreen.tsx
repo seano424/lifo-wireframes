@@ -44,6 +44,8 @@ export const MappingScreen: React.FC<MappingScreenProps> = ({ onNavigate }) => {
     { csv: 'SKU' as const, mapped: 'SKU' },
   ]
 
+  const availableCategories = getAvailableCategories()
+
   return (
     <>
       <Header
@@ -65,14 +67,30 @@ export const MappingScreen: React.FC<MappingScreenProps> = ({ onNavigate }) => {
             <div className="font-medium text-gray-800 text-sm">
               &quot;{csv}&quot;
             </div>
-            <select 
-              className="px-2 py-1 border border-gray-300 rounded-sm text-xs min-w-[120px]"
-              value={mappings[csv]}
-              onChange={(e) => handleMappingChange(csv, e.target.value)}
-            >
-              <option value={mapped}>{mapped} ✓</option>
-              <option value="Ignore">Ignore</option>
-            </select>
+            {csv === 'Category' ? (
+              <select 
+                className="px-2 py-1 border border-gray-300 rounded-sm text-xs min-w-[120px]"
+                value={mappings[csv]}
+                onChange={(e) => handleMappingChange(csv, e.target.value)}
+              >
+                <option value="Category">Category ✓</option>
+                {availableCategories.map(category => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+                <option value="Ignore">Ignore</option>
+              </select>
+            ) : (
+              <select 
+                className="px-2 py-1 border border-gray-300 rounded-sm text-xs min-w-[120px]"
+                value={mappings[csv]}
+                onChange={(e) => handleMappingChange(csv, e.target.value)}
+              >
+                <option value={mapped}>{mapped} ✓</option>
+                <option value="Ignore">Ignore</option>
+              </select>
+            )}
           </div>
         ))}
 

@@ -2,22 +2,10 @@ import React from 'react'
 import { Header } from '../layout/Header'
 import { ProductItem } from '../ui/ProductItem'
 import { detectProductType } from '../../utils/categoryMapping'
+import { UrgentItem } from '../../types'
 
 interface ProductsScreenProps {
-  items: Array<{
-    id: number
-    name: string
-    brand: string
-    packageSize: string
-    sku: string
-    expires: string
-    stock: number
-    score: number
-    action: string
-    color: 'red' | 'yellow'
-    thumbnail: string
-    category: string
-  }>
+  items: UrgentItem[]
   showPackagedOnly?: boolean
   onTogglePackagedOnly?: () => void
 }

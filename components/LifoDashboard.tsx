@@ -7,214 +7,17 @@ import { ProductsScreen } from './dashboard/ProductsScreen'
 import { UploadScreen } from './dashboard/UploadScreen'
 import { MappingScreen } from './dashboard/MappingScreen'
 import { AnalyticsScreen } from './dashboard/AnalyticsScreen'
-
-interface UrgentItem {
-  id: number
-  name: string
-  brand: string
-  packageSize: string
-  sku: string
-  expires: string
-  stock: number
-  score: number
-  action: string
-  color: 'red' | 'yellow'
-  thumbnail: string
-  cost: string
-  totalValue: string
-  category: string
-}
+import { getAllItems, getUrgentItems, getWatchListItems, getHealthyItems } from '../data/mockProducts'
+import { UrgentItem } from '../types'
 
 const LifoDashboard = () => {
   const [activeScreen, setActiveScreen] = useState('dashboard')
   const [showPackagedOnly, setShowPackagedOnly] = useState(true)
 
-  // Sample data
-  // const urgentItems: UrgentItem[] = [
-  //   {
-  //     id: 1,
-  //     name: 'Corn Flakes',
-  //     brand: 'Kellogg\'s',
-  //     packageSize: '500g',
-  //     sku: 'KF-500-001',
-  //     expires: '2 days',
-  //     stock: 12,
-  //     score: 2,
-  //     action: '50% OFF',
-  //     color: 'red',
-  //     thumbnail: '🌽'
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'Canned Tomatoes',
-  //     brand: 'Hunt\'s',
-  //     packageSize: '400g',
-  //     sku: 'HT-400-002',
-  //     expires: '2 days',
-  //     stock: 8,
-  //     score: 3,
-  //     action: 'DONATE',
-  //     color: 'red',
-  //     thumbnail: '🥫'
-  //   },
-  //   {
-  //     id: 3,
-  //     name: 'Bottled Water',
-  //     brand: 'Aquafina',
-  //     packageSize: '500ml',
-  //     sku: 'AQ-500-003',
-  //     expires: '3 days',
-  //     stock: 24,
-  //     score: 4,
-  //     action: 'FRONT',
-  //     color: 'yellow',
-  //     thumbnail: '💧'
-  //   },
-  //   {
-  //     id: 4,
-  //     name: 'Frozen Pizza',
-  //     brand: 'DiGiorno',
-  //     packageSize: '300g',
-  //     sku: 'DG-300-004',
-  //     expires: '4 days',
-  //     stock: 15,
-  //     score: 5,
-  //     action: '25% OFF',
-  //     color: 'yellow',
-  //     thumbnail: '🍕'
-  //   },
-  // ]
-
-  const urgentItems: UrgentItem[] = [
-    {
-      id: 1,
-      name: 'Organic Whole Milk',
-      brand: 'Horizon',
-      packageSize: '1L',
-      sku: 'HZ-1000-001',
-      expires: '1 day',
-      stock: 18,
-      score: 1,
-      action: '40% OFF',
-      color: 'red',
-      thumbnail: '🥛',
-      cost: '$4.99',
-      totalValue: '$89.82',
-      category: 'Dairy'
-    },
-    {
-      id: 2,
-      name: 'Greek Yogurt 4-Pack',
-      brand: 'Chobani',
-      packageSize: '4x150g',
-      sku: 'CH-600-002',
-      expires: '2 days',
-      stock: 12,
-      score: 2,
-      action: 'DONATE',
-      color: 'red',
-      thumbnail: '🍯',
-      cost: '$6.49',
-      totalValue: '$77.88',
-      category: 'Dairy'
-    },
-    {
-      id: 3,
-      name: 'Pre-Made Caesar Salad',
-      brand: 'Fresh Express',
-      packageSize: '320g',
-      sku: 'FE-320-003',
-      expires: '1 day',
-      stock: 8,
-      score: 1,
-      action: '50% OFF',
-      color: 'red',
-      thumbnail: '🥗',
-      cost: '$3.99',
-      totalValue: '$31.92',
-      category: 'Prepared Foods'
-    },
-    {
-      id: 4,
-      name: 'Ground Beef 85/15',
-      brand: 'Local Farm',
-      packageSize: '500g',
-      sku: 'LF-500-004',
-      expires: '2 days',
-      stock: 6,
-      score: 2,
-      action: 'MARKDOWN',
-      color: 'red',
-      thumbnail: '🥩',
-      cost: '$8.99',
-      totalValue: '$53.94',
-      category: 'Meat & Seafood'
-    },
-    {
-      id: 5,
-      name: 'Corn Flakes',
-      brand: "Kellogg's",
-      packageSize: '500g',
-      sku: 'KF-500-001',
-      expires: '2 days',
-      stock: 12,
-      score: 2,
-      action: '50% OFF',
-      color: 'red',
-      thumbnail: '🌽',
-      cost: '$4.99',
-      totalValue: '$59.88',
-      category: 'Packaged Goods'
-    },
-    {
-      id: 6,
-      name: 'Canned Tomatoes',
-      brand: "Hunt's",
-      packageSize: '400g',
-      sku: 'HT-400-002',
-      expires: '2 days',
-      stock: 8,
-      score: 3,
-      action: 'DONATE',
-      color: 'red',
-      thumbnail: '🥫',
-      cost: '$2.99',
-      totalValue: '$23.92',
-      category: 'Canned Goods'
-    },
-    {
-      id: 7,
-      name: 'Bottled Water',
-      brand: 'Aquafina',
-      packageSize: '500ml',
-      sku: 'AQ-500-003',
-      expires: '3 days',
-      stock: 24,
-      score: 4,
-      action: 'FRONT',
-      color: 'yellow',
-      thumbnail: '💧',
-      cost: '$1.99',
-      totalValue: '$47.76',
-      category: 'Beverages'
-    },
-    {
-      id: 8,
-      name: 'Frozen Pizza',
-      brand: 'DiGiorno',
-      packageSize: '300g',
-      sku: 'DG-300-004',
-      expires: '4 days',
-      stock: 15,
-      score: 5,
-      action: '25% OFF',
-      color: 'yellow',
-      thumbnail: '🍕',
-      cost: '$6.99',
-      totalValue: '$104.85',
-      category: 'Frozen Foods'
-    },
-  ]
+  const allItems = getAllItems()
+  const urgentItems = getUrgentItems()
+  const watchListItems = getWatchListItems()
+  const healthyItems = getHealthyItems()
 
   const renderScreen = () => {
     switch (activeScreen) {
@@ -223,7 +26,7 @@ const LifoDashboard = () => {
       case 'products':
         return (
           <ProductsScreen
-            items={urgentItems}
+            items={allItems}
             showPackagedOnly={showPackagedOnly}
             onTogglePackagedOnly={() => setShowPackagedOnly(!showPackagedOnly)}
           />

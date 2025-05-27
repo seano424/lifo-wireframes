@@ -7,22 +7,13 @@ import { ProductsScreen } from './dashboard/ProductsScreen'
 import { UploadScreen } from './dashboard/UploadScreen'
 import { MappingScreen } from './dashboard/MappingScreen'
 import { AnalyticsScreen } from './dashboard/AnalyticsScreen'
-import {
-  getAllItems,
-  getUrgentItems,
-  getWatchListItems,
-  getHealthyItems,
-} from '../data/mockProducts'
-import { UrgentItem } from '../types'
+import { getAllItems } from '../data/mockProducts'
 
 const LifoDashboard = () => {
   const [activeScreen, setActiveScreen] = useState('dashboard')
   const [showPackagedOnly, setShowPackagedOnly] = useState(true)
 
   const allItems = getAllItems()
-  const urgentItems = getUrgentItems()
-  const watchListItems = getWatchListItems()
-  const healthyItems = getHealthyItems()
 
   const renderScreen = () => {
     switch (activeScreen) {
@@ -98,7 +89,7 @@ const LifoDashboard = () => {
         </div>
 
         {/* Design Decisions */}
-        <div className="bg-white p-8 rounded-xl shadow-xs">
+        <div className="bg-white p-8 rounded-xl shadow-xs mb-10">
           <h2 className="text-xl font-semibold text-gray-800 mb-5">
             Design Decisions
           </h2>
@@ -136,6 +127,33 @@ const LifoDashboard = () => {
               <p className="text-gray-600 text-sm">
                 Smart column mapping means stores don&apos;t need to change
                 their existing spreadsheet workflow.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Integration Opportunities */}
+        <div className="bg-white p-8 rounded-xl shadow-xs">
+          <h2 className="text-xl font-semibold text-gray-800 mb-5">
+            Integration Opportunities
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="text-green-600 font-semibold mb-3">
+                Too Good To Go Partnership
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Seamlessly list surplus items on consumer marketplace platforms
+                with one-click publishing and automated inventory sync.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-green-600 font-semibold mb-3">
+                Food Bank Networks
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Direct integration with local donation networks for compliance
+                tracking and tax benefit documentation.
               </p>
             </div>
           </div>

@@ -1,9 +1,9 @@
-import LifeDashboard from '@/components/LifeDashboard'
+import LifoDashboard from '@/components/LifoDashboard'
 
 export default function Home() {
   return (
     <div className="font-castoro">
-      <LifeDashboard />
+      <LifoDashboard />
     </div>
   )
 }

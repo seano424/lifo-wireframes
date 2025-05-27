@@ -1,28 +1,44 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import { Header } from '../layout/Header'
 import { ProductItem } from '../ui/ProductItem'
 import { detectProductType } from '../../utils/categoryMapping'
 import { UrgentItem } from '../../types'
 
+type FilterType = 'all' | 'fresh' | 'packaged'
+
 interface ProductsScreenProps {
   items: UrgentItem[]
-  showPackagedOnly?: boolean
-  onTogglePackagedOnly?: () => void
+  initialFilterType?: FilterType
+  onFilterChange?: (type: FilterType) => void
 }
 
 export const ProductsScreen: React.FC<ProductsScreenProps> = ({
   items,
-  showPackagedOnly = true,
-  onTogglePackagedOnly,
+  initialFilterType = 'packaged',
+  onFilterChange,
 }) => {
-  // Filter items based on showPackagedOnly
-  const filteredItems = showPackagedOnly 
-    ? items.filter(item => detectProductType(item) === 'packaged')
-    : items
+  const [filterType, setFilterType] = useState<FilterType>(initialFilterType)
+
+  const handleFilterChange = (type: FilterType) => {
+    setFilterType(type)
+    onFilterChange?.(type)
+  }
+
+  // Filter items based on filterType
+  const filteredItems = items.filter((item) => {
+    if (filterType === 'all') return true
+    return detectProductType(item) === filterType
+  })
 
   // Count items by type
-  const freshCount = items.filter(item => detectProductType(item) === 'fresh').length
-  const packagedCount = items.filter(item => detectProductType(item) === 'packaged').length
+  const freshCount = items.filter(
+    (item) => detectProductType(item) === 'fresh'
+  ).length
+  const packagedCount = items.filter(
+    (item) => detectProductType(item) === 'packaged'
+  ).length
 
   return (
     <>
@@ -34,26 +50,25 @@ export const ProductsScreen: React.FC<ProductsScreenProps> = ({
 
       {/* Filters */}
       <div className="px-5 mb-4 space-y-3">
-        <label className="flex items-center justify-between p-3 bg-white/40 backdrop-blur-xs rounded-xl border border-white/20 shadow-sm">
-          <span className="text-sm font-medium text-gray-700">
-            Packaged Products Only
-          </span>
-          <button
-            onClick={onTogglePackagedOnly}
-            className={`relative inline-flex h-6 w-11 items-center cursor-pointer rounded-full transition-colors focus:outline-none ${
-              showPackagedOnly ? 'bg-blue-600' : 'bg-gray-200'
-            }`}
-          >
-            <span
-              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                showPackagedOnly ? 'translate-x-6' : 'translate-x-1'
+        <div className="flex p-1 bg-white/40 backdrop-blur-xs rounded-xl border border-white/20 shadow-sm">
+          {(['all', 'fresh', 'packaged'] as const).map((type) => (
+            <button
+              key={type}
+              onClick={() => handleFilterChange(type)}
+              className={`flex-1 py-2 px-3 cursor-pointer text-sm font-medium rounded-lg transition-colors ${
+                filterType === type
+                  ? 'bg-white text-blue-600 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900'
               }`}
-            />
-          </button>
-        </label>
+            >
+              {type.charAt(0).toUpperCase() + type.slice(1)}
+            </button>
+          ))}
+        </div>
 
         <div className="text-xs text-gray-500">
-          Showing {filteredItems.length} items • {freshCount} fresh • {packagedCount} packaged
+          Showing {filteredItems.length} items • {freshCount} fresh •{' '}
+          {packagedCount} packaged
         </div>
       </div>
 

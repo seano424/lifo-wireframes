@@ -13,7 +13,7 @@ import UserFlowDiagram from './UserFlowDiagram'
 const LifoDashboard = () => {
   const [activeScreen, setActiveScreen] = useState('dashboard')
   const [showPackagedOnly, setShowPackagedOnly] = useState(true)
-  const [showUserFlow, setShowUserFlow] = useState(false)
+  const [showUserFlow, setShowUserFlow] = useState(true)
 
   const allItems = getAllItems()
 

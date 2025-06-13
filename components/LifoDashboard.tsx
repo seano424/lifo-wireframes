@@ -8,10 +8,12 @@ import { UploadScreen } from './dashboard/UploadScreen'
 import { MappingScreen } from './dashboard/MappingScreen'
 import { AnalyticsScreen } from './dashboard/AnalyticsScreen'
 import { getAllItems } from '../data/mockProducts'
+import UserFlowDiagram from './UserFlowDiagram'
 
 const LifoDashboard = () => {
   const [activeScreen, setActiveScreen] = useState('dashboard')
   const [showPackagedOnly, setShowPackagedOnly] = useState(true)
+  const [showUserFlow, setShowUserFlow] = useState(false)
 
   const allItems = getAllItems()
 
@@ -73,6 +75,15 @@ const LifoDashboard = () => {
             Mobile-first design for busy store managers who need quick,
             actionable insights on the go.
           </p>
+
+          <button
+            className="bg-blue-500 text-white mx-auto block my-5 px-4 py-2 rounded-md"
+            onClick={() => setShowUserFlow(!showUserFlow)}
+          >
+            {showUserFlow ? 'Hide User Flow' : 'View User Flow'}
+          </button>
+
+          {showUserFlow && <UserFlowDiagram />}
         </div>
 
         {/* Interactive Demo */}

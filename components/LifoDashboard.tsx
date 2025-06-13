@@ -77,7 +77,7 @@ const LifoDashboard = () => {
           </p>
 
           <button
-            className="bg-blue-500 text-white mx-auto block my-5 px-4 py-2 rounded-md"
+            className="bg-blue-500 text-white mx-auto block my-5 px-4 py-2 rounded-md cursor-pointer"
             onClick={() => setShowUserFlow(!showUserFlow)}
           >
             {showUserFlow ? 'Hide User Flow' : 'View User Flow'}
